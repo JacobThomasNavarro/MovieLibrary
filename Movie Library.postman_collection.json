@@ -1,0 +1,122 @@
+{
+	"info": {
+		"_postman_id": "df708a78-85b2-4cc6-b798-474e499cc8b7",
+		"name": "Movie Library",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://localhost:44352/api/movie",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"MovieId\": 1,\r\n        \"Title\": \"The Departed\",\r\n        \"Director\": \"Martin Scorsese\",\r\n        \"Genre\": \"Action\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44352/api/movie",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44352",
+					"path": [
+						"api",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44352/api/movie",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"MovieId\": 2,\r\n        \"Title\": \"The Dark Knight\",\r\n        \"Director\": \"Christopher Nolan\",\r\n        \"Genre\": \"Action/Drama\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44352/api/movie/2",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44352",
+					"path": [
+						"api",
+						"movie",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://localhost:44352/api/movie",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"MovieId\": 2,\r\n        \"Title\": \"The Dark Knight\",\r\n        \"Director\": \"Christopher Nolan\",\r\n        \"Genre\": \"Action/Drama\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:44352/api/movie",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "44352",
+					"path": [
+						"api",
+						"movie"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
