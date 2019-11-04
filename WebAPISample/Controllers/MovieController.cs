@@ -49,9 +49,20 @@ namespace WebAPISample.Controllers
         }
 
         // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut]
+        public void Put(int id, Movie movie)
         {
-            // Update movie in db logic
+            if (!ModelState.IsValid)
+            {
+                throw new HttpResponseException(HttpStatusCode.BadRequest);
+
+            }
+            var mvie = context.Movies.SingleOrDefault(m => m.MovieId == id);
+            if (mvie == null)
+            {
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+            }
+            context.SaveChanges();
         }
 
         // DELETE api/values/5
