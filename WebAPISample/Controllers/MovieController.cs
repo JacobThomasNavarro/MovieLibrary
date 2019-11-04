@@ -50,19 +50,28 @@ namespace WebAPISample.Controllers
 
         // PUT api/values/5
         [HttpPut]
-        public void Put(int id, Movie movie)
+        public IHttpActionResult Put(int id, Movie movie)
         {
             if (!ModelState.IsValid)
-            {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
 
-            }
-            var mvie = context.Movies.SingleOrDefault(m => m.MovieId == id);
-            if (mvie == null)
+            var newMovie = context.Movies.Where(m => m.MovieId == id).FirstOrDefault();
+
+            if(newMovie != null)
             {
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                newMovie.MovieId = movie.MovieId;
+                newMovie.Title = movie.Title;
+                newMovie.Director = movie.Director;
+                newMovie.Genre = movie.Genre;
+
+                context.SaveChanges();
             }
-            context.SaveChanges();
+            else
+            {
+                return NotFound();
+            }
+
+            return Ok(newMovie);
         }
 
         // DELETE api/values/5
