@@ -55,9 +55,16 @@ namespace WebAPISample.Controllers
         }
 
         // DELETE api/values/5
+        [HttpDelete]
         public void Delete(int id)
         {
-            // Delete movie from db logic
+            var movie = context.Movies.SingleOrDefault(m => m.MovieId == id);
+
+            if (movie == null)
+                throw new HttpResponseException(HttpStatusCode.NotFound);
+
+            context.Movies.Remove(movie);
+            context.SaveChanges();
         }
     }
 
