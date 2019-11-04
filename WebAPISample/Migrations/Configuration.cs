@@ -20,6 +20,7 @@ namespace WebAPISample.Migrations
     new Models.Movie { Title = "Inception", Genre = "Drama", Director = "Christopher Nolan" },
     new Models.Movie { Title = "Pineapple Express", Genre = "Comedy", Director = "David Gordon Green" },
     new Models.Movie { Title = "Die Hard", Genre = "Action", Director = "John McTiernan" }
+
  );
         }
     }
