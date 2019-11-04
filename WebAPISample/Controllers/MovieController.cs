@@ -35,10 +35,16 @@ namespace WebAPISample.Controllers
     }
 
     // POST api/values
-    public void Post([FromBody]Movie value)
+    [HttpPost]
+    public IHttpActionResult Post([FromBody]Movie movie)
         {
-            // Create movie in db 
-            
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            context.Movies.Add(movie);
+            context.SaveChanges();
+
+            return Ok(movie);
 
         }
 
