@@ -9,8 +9,26 @@ $('input').on('click', function () {
                 $movies.append('<li>Title: '+ movie.Title +' Director: '+ movie.Director +' Genre: '+ movie.Genre + '</li>');
             });
         }
-    });
-});
+ });
 });
 
+$(document).ready(function() {
+    var movie = new Object ();
+    movie.Title
+    movie.Director
+    movie.Genre
+    $("#Save").click(function() {
+        $.ajax({
+            url: 'https://localhost:44352/api/movie',
+            type: 'PUT'
+            dataType: 'json'
+            data: movie,
+            success: function (data, textStatus, xhr) {  
+                    console.log(data);  
+                },  
+                error: function (xhr, textStatus, errorThrown) {  
+                    console.log('Error in Operation');  
+                }  
+
+    }
 // ("button").click
