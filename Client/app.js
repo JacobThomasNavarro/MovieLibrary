@@ -35,7 +35,7 @@ $('input').on('click', function () {
         success: function(movies){
             $('#movies').html('');
            $.each(movies, function(i, movie){
-                $('#movies').append('<li>Title: '+ movie.Title +' Director: '+ movie.Director +' Genre: '+ movie.Genre + '</li>'); 
+                $('#movies').append('<li style="color:white">Title: '+ movie.Title +' Director: '+ movie.Director +' Genre: '+ movie.Genre + '</li>'); 
             });
         }
     });
